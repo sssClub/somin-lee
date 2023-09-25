@@ -27,7 +27,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
 
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "$project.rootDir/tools/proguard-rules-debug.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "$project.rootDir/tools/proguard-rules-debug.pro"
+            )
 //            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt") "proguard-rules.pro")
         }
     }
@@ -53,18 +56,50 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.7.2")
+
+    implementation(Compose.ACTIVITY)
     implementation(platform("androidx.compose:compose-bom:2022.10.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Kotlin
+    implementation(KotlinX.KOTLINX_SERIALIZATION)
+
+    // AndroidX
+    implementation(AndroidX.ACTIVITY)
+    implementation(AndroidX.APP_COMPAT)
+    implementation(AndroidX.CORE_KTX)
+    implementation(AndroidX.LIFECYCLE_RUNTIME)
+    implementation(AndroidX.PAGING)
+    implementation(AndroidX.LIFECYCLE_VIEWMODEL_KTX)
+    implementation(AndroidX.NAVIGATION_CONPONENT_FRAGMENT)
+    implementation(AndroidX.NAVIGATION_CONPONENT_UI)
+    implementation(AndroidX.CONSTRAINT_LAYOUT)
+
+    // Matrial Design
+    implementation(Google.MATERIAL)
+
+    // Test Dependency
+    testImplementation(TestDependencies.JUNIT)
+    androidTestImplementation(TestDependencies.EXT_JUNIT)
+    androidTestImplementation(TestDependencies.ESPRESSO_CORE)
+
+    // shared preference
+    implementation("androidx.security:security-crypto-ktx:1.1.0-alpha06")
+
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Third-Party
+    implementation(SquareUp.RETROFIT2)
+    implementation(SquareUp.RETROFIT2_CONVERTER_GSON)
+    implementation(SquareUp.OKHTTP3)
+    implementation(SquareUp.OKHTTP3_LOGGING)
+    implementation(SquareUp.OKHTTP3_BOM)
+    implementation(Jakewharton.TIMBER)
+    implementation(Jakewharton.CONVERTER)
+    implementation(ThirdParty.COIL)
 }
