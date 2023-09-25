@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "sssomin"
-include ':app'
+include(":app")
